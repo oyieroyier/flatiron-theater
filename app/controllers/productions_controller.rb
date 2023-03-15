@@ -1,10 +1,13 @@
 class ProductionsController < ApplicationController
-  wrap_parameters format: []
+  # wrap_parameters format: []
   # protect_from_forgery with: :null_session
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+
   # GET all productions
   def index
-    render json: Production.all, only: %i[title genre], status: :ok
+    render json: Production.all, except: %i[created_at updated_at], status: :ok
   end
 
   # GET a single production
@@ -20,7 +23,7 @@ class ProductionsController < ApplicationController
 
   # POST a new production
   def create
-    production = Production.create(production_params)
+    production = Production.create!(production_params)
     render json: production
   end
 
@@ -51,6 +54,10 @@ class ProductionsController < ApplicationController
 
   def find_production
     Production.find(params[:id])
+  end
+
+  def render_unprocessable_entity(invalid)
+    render json: { error: invalid.record.errors }
   end
 
   def not_found_response
