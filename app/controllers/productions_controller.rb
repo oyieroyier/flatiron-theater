@@ -1,19 +1,21 @@
 class ProductionsController < ApplicationController
   wrap_parameters format: []
-
+  # protect_from_forgery with: :null_session
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
   # GET all productions
   def index
     render json: Production.all, only: %i[title genre], status: :ok
   end
 
   # GET a single production
+
   def show
-    production = Production.find_by(id: params[:id])
-    if production
-      render json: production, except: %i[created_at updated_at], methods: [:title_director], status: :ok
-    else
-      render json: { error: 'Not Available' }, status: :not_found
-    end
+    production = find_production
+
+    render json: production,
+           except: %i[created_at updated_at],
+           methods: [:title_director],
+           status: :ok
   end
 
   # POST a new production
@@ -25,37 +27,33 @@ class ProductionsController < ApplicationController
   # DELETE a production
   def destroy
     # Find the entry
-    production = Production.find_by(id: params[:id])
-
-    if production
-      # Destroy the entry
-      production.destroy
-      head :no_content
-    else
-      render json: { error: 'Production not found!' }, status: :not_found
-    end
+    production = find_production
+    # Destroy the entry
+    production.destroy
+    head :no_content
   end
 
   # PATCH a production
   def update
     # Find the entry
-    production = Production.find_by(id: params[:id])
+    production = find_production
 
-    if production
-      # Update the entry
-      production.update(production_params)
-      render json: production, status: :accepted
-    else
-      render json: {
-               error: 'No such production, check Nollywood!',
-             },
-             status: :not_found
-    end
+    # Update the entry
+    production.update(production_params)
+    render json: production, status: :accepted
   end
 
   private
 
   def production_params
     params.permit(:title, :genre, :budget, :image, :director, :ongoing)
+  end
+
+  def find_production
+    Production.find(params[:id])
+  end
+
+  def not_found_response
+    render json: { error: 'No such production, msee!' }, status: :not_found
   end
 end
