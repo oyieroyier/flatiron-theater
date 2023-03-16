@@ -1,0 +1,28 @@
+.form {
+	padding: 5rem;
+	height: fit-content;
+
+	label {
+		padding: 0.5rem;
+		display: block;
+		font-size: 1.5rem;
+		color: aliceblue;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+
+	input {
+		width: 20rem;
+		height: 3rem;
+		display: block;
+		margin: auto;
+		margin-bottom: 1rem;
+	}
+
+	button {
+		cursor: pointer;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		font-size: 1.5rem;
+
+	}
+}

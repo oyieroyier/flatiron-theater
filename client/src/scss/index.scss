@@ -1,0 +1,10 @@
+@import './config', './movie-cards', './navbar', './form';
+
+h1{
+font-family: $header-font;
+font-size: 3rem;
+}
+
+body{
+	background-color: #60548b;
+}
