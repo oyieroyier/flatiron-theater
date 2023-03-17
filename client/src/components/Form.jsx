@@ -7,6 +7,7 @@ const Form = () => {
 	const [image, setImage] = useState('');
 	const [director, setDirector] = useState('');
 	const [description, setDescription] = useState('');
+	const [errors, setErrors] = useState([]);
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -30,7 +31,7 @@ const Form = () => {
 			if (res.ok) {
 				res.json();
 			} else {
-				res.json().then()
+				res.json().then((e) => setErrors(Object.entries(e.error).flat()));
 			}
 		});
 	};

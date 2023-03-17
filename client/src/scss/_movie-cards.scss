@@ -29,3 +29,22 @@
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
 }
+
+.card-top {
+	display: flex;
+	align-items: center;
+
+	h2 {
+		flex-grow: 1;
+	}
+
+	button {
+		border-radius: 0.5rem;
+		border: none;
+		margin: 1rem;
+		background-color: rgb(197, 70, 70);
+		color: #fff;
+		padding: 0.5rem;
+		cursor: pointer;
+	}
+}
