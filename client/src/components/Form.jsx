@@ -74,6 +74,13 @@ const Form = () => {
 				value={description}
 				onChange={(e) => setDescription(e.target.value)}
 			/>
+			{errors.length > 0 && (
+				<ul style={{ color: 'red' }}>
+					{errors.map((error) => (
+						<li key={error}>{error}</li>
+					))}
+				</ul>
+			)}
 			<button type="submit">Add New Production</button>
 		</form>
 	);

@@ -57,7 +57,7 @@ class ProductionsController < ApplicationController
   end
 
   def render_unprocessable_entity(invalid)
-    render json: { error: invalid.record.errors }
+    render json: { error: invalid.record.errors }, status: :unprocessable_entity
   end
 
   def not_found_response
