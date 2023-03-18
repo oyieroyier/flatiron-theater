@@ -7,7 +7,7 @@ class ProductionsController < ApplicationController
 
   # GET all productions
   def index
-    render json: Production.all, except: %i[created_at updated_at], status: :ok
+    render json: Production.all, status: :ok
   end
 
   # GET a single production
