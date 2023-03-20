@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
 	const [title, setTitle] = useState('');
@@ -34,10 +35,12 @@ const Form = () => {
 				res.json().then((e) => setErrors(Object.entries(e.error).flat()));
 			}
 		});
+
 	};
 
+	
 	return (
-		<form id="form" className="form" onSubmit={onSubmit}>
+		<form className="form" onSubmit={onSubmit}>
 			<label>Title</label>
 			<input
 				type="text"

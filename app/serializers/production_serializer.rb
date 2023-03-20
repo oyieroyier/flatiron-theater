@@ -1,3 +1,4 @@
 class ProductionSerializer < ActiveModel::Serializer
-  attributes :title, :genre, :budget, :image, :director
+  attributes :id, :title, :description, :genre, :budget, :image, :director
+  has_many :crew_members
 end

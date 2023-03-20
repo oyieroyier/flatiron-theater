@@ -30,6 +30,7 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+	gem 'byebug', '~> 11.1', '>= 11.1.3'
 	gem 'faker'
 end
 

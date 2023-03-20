@@ -5,7 +5,8 @@ nav {
 		flex-grow: 1;
 	}
 
-	li {
+	li,
+	button {
 		list-style: none;
 		margin: 1rem;
 		font-size: 2rem;
@@ -14,8 +15,9 @@ nav {
 		background-color: #ccc;
 		padding: 0.5rem;
 		border-radius: 1rem;
+		cursor: pointer;
 
-		a{
+		a {
 			text-decoration: none;
 		}
 	}
