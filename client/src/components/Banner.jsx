@@ -7,8 +7,8 @@ const Banner = () => {
 			.then(console.log);
 	}
 	return (
-		<div>
-			<button onClick={handleClick}>Click</button>
+		<div className='banner'>
+			<button onClick={handleClick}>🍪</button>
 		</div>
 	);
 };

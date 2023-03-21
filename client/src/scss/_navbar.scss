@@ -5,6 +5,10 @@ nav {
 		flex-grow: 1;
 	}
 
+	ul{
+		display: flex;
+		flex-wrap: wrap;
+	}
 	li,
 	button {
 		list-style: none;
@@ -16,6 +20,7 @@ nav {
 		padding: 0.5rem;
 		border-radius: 1rem;
 		cursor: pointer;
+		height: fit-content;
 
 		a {
 			text-decoration: none;

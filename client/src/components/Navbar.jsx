@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './Banner';
 
@@ -7,13 +7,16 @@ const Navbar = () => {
 		<nav>
 			<h1>Productions</h1>
 			<ul>
-				<Banner/>
+				<Banner />
+				<Link to="/login">
+					<button>Login</button>
+				</Link>
 				<li>
-					<Link to='/add'>Add</Link>
+					<Link to="/add">Add</Link>
 				</li>
 			</ul>
 		</nav>
 	);
-}
+};
 
-export default Navbar
+export default Navbar;

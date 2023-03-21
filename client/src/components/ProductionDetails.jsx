@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router';
 
 const ProductionDetails = () => {
-	const [production, setProduction] = useState([]);
-	// const id = useParams();
+	const [production, setProduction] = useState('');
+
+	const { id } = useParams();
+	const navigate = useNavigate();
 
 	const handleDelete = () => {
-		fetch(`/productions/${production.id}`, {
+		fetch(`/productions/${id}`, {
 			method: 'DELETE',
 		}).then((res) => {
 			if (res.ok) {
-				res.json().then(console.log);
+				res.json().then(setProduction(null));
+				navigate('/');
 			} else {
 				res.json().then(console.log);
 			}
@@ -19,18 +21,21 @@ const ProductionDetails = () => {
 	};
 
 	useEffect(() => {
-		fetch(`/productions/${production.id}`)
+		fetch(`/productions/${id}`)
 			.then((res) => res.json())
-			.then(console.log);
+			.then(setProduction);
 	}, []);
 
 	return (
-		<div>
-			<img src={production.image} alt="" />
+		<div className="details-card">
 			<h1>{production.title}</h1>
-			<button onClick={handleDelete}></button>
+			<img src={production.image} alt="" />
+			<h2>Production Budget: USD {production.budget}</h2>
 			<p>{production.description}</p>
-			<h2>{production.crew}</h2>
+			<div className="buttons">
+				<button>EDIT</button>
+				<button onClick={handleDelete}>DELETE</button>
+			</div>
 			{/* <ul>
 				{production.crew_members.map((member) => (
 					<li>{`${member.name} : ${member.job_title}`}</li>

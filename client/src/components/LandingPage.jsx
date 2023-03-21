@@ -2,27 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
-const LandingPage = () => {
-	const [productions, setProductions] = useState([]);
-
-	
-	useEffect(() => {
-		fetch('/productions')
-			.then((res) => res.json())
-			.then(setProductions);
-	}, []);
-
-	// const handleDelete = () => {
-	// 	fetch(`/productions/${production.id}`, {
-	// 		method: 'DELETE',
-	// 	}).then((res) => {
-	// 		if (res.ok) {
-	// 			res.json().then(console.log);
-	// 		} else {
-	// 			res.json().then(console.log);
-	// 		}
-	// 	});
-	// };
+const LandingPage = ({productions}) => {
 
 	return (
 		<main>

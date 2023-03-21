@@ -17,12 +17,15 @@
 		margin: auto;
 		margin-bottom: 1rem;
 	}
+	textarea {
+		@extend input;
+		height: 7rem;
+	}
 
 	button {
 		cursor: pointer;
 		padding: 1rem;
 		border-radius: 0.5rem;
 		font-size: 1.5rem;
-
 	}
 }

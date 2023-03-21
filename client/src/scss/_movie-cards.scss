@@ -6,7 +6,7 @@
 	gap: 3rem;
 }
 .card {
-	width: fit-content;
+	width: min-content;
 	box-shadow: $shadow;
 	border-radius: 1rem;
 
@@ -14,8 +14,12 @@
 		transform: scale(1.02);
 	}
 
+	a {
+		text-decoration: none;
+	}
+
 	h2 {
-		color: #000;
+		color: #fff;
 		padding: 1rem;
 		font-family: $body-font;
 		letter-spacing: 0.25rem;

@@ -1,10 +1,15 @@
-@import './config', './movie-cards', './navbar', './form';
+@import './config', './movie-cards', './navbar', './form', './details-card';
 
 h1{
 font-family: $header-font;
 font-size: 3rem;
+color: rgb(185, 196, 206);
 }
 
 body{
-	background-color: #60548b;
+	background-color: #2c263b;
+}
+
+.banner button{
+	background-color: #666;
 }

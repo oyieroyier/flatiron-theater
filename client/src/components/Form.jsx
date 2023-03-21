@@ -72,11 +72,12 @@ const Form = () => {
 				onChange={(e) => setDirector(e.target.value)}
 			/>
 			<label>Description</label>
-			<input
+			<textarea
 				type="text"
 				value={description}
 				onChange={(e) => setDescription(e.target.value)}
 			/>
+			<button type="submit">Add New Production</button>
 			{errors.length > 0 && (
 				<ul style={{ color: 'red' }}>
 					{errors.map((error) => (
@@ -84,7 +85,6 @@ const Form = () => {
 					))}
 				</ul>
 			)}
-			<button type="submit">Add New Production</button>
 		</form>
 	);
 };

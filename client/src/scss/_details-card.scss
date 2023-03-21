@@ -1,0 +1,35 @@
+.details-card {
+	padding: 2rem;
+	margin: auto;
+	width: 50%;
+
+	img {
+		height: 40rem;
+	}
+
+	p {
+		margin: 1rem;
+		font-size: 2rem;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		color: aliceblue;
+	}
+
+	h2 {
+		@extend p;
+		color:aquamarine;
+	}
+
+	button {
+		margin: 1rem;
+		cursor: pointer;
+		font-size: 2rem;
+		padding: 1rem;
+		background-color: #ccc;
+		border-radius: 0.5rem;
+
+		&:hover {
+			background-color: #666;
+			color: aliceblue;
+		}
+	}
+}
