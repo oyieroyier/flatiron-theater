@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :productions, only: %i[index show create update destroy]
 
   get '/cookie_click', to: 'sessions#click'
-  post '/login', to: 'sessions#create'
+  post '/signup', to: 'sessions#create'
+  get '/login', to: 'sessions#show'
 end

@@ -3,7 +3,7 @@
 CrewMember.destroy_all
 Production.destroy_all
 
-puts 'Seeding... 🌱'
+puts 'Seeding productions 🎥...'
 Production.create(
   [
     {
@@ -72,8 +72,7 @@ Production.create(
   ],
 )
 
-puts 'Done 🤡'
-
+puts 'Seeding crew members 🤼...'
 30.times do
   CrewMember.create(
     [
@@ -86,3 +85,17 @@ puts 'Done 🤡'
     ],
   )
 end
+
+puts 'Seeding users 🧑🏿‍🦰...'
+5.times do
+  User.create(
+    [
+      {
+        username: Faker::Internet.username(specifier: 5..10),
+        password: Faker::Internet.password(min_length: 5, max_length: 8),
+      },
+    ],
+  )
+end
+
+puts 'Done seeding.'

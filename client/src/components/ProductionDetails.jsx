@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ProductionDetails = () => {
 	const [production, setProduction] = useState('');
@@ -33,7 +34,9 @@ const ProductionDetails = () => {
 			<h2>Production Budget: USD {production.budget}</h2>
 			<p>{production.description}</p>
 			<div className="buttons">
-				<button>EDIT</button>
+				<Link to="/updateProduction">
+					<button>EDIT</button>
+				</Link>
 				<button onClick={handleDelete}>DELETE</button>
 			</div>
 			{/* <ul>

@@ -1,5 +1,5 @@
 class Production < ApplicationRecord
-  has_many :crew_members
+  has_many :crew_members, dependent: :destroy
 
   validates :title, presence: true
   validate :no_more_musicals
